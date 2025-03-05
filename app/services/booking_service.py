@@ -1,9 +1,10 @@
 import logging
 
-from app.database import get_session
-from app.models import Booking, User
 from fastapi import Depends, HTTPException
 from sqlmodel import select
+
+from app.models import Booking, User
+from app.utils.database import get_session
 
 logger = logging.getLogger(__name__)
 
