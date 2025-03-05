@@ -1,4 +1,3 @@
-import os
 from datetime import datetime
 
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
@@ -10,9 +9,7 @@ from app.models.booking import Booking
 from app.models.technician import Technician
 from app.models.user import User
 
-DATABASE_URL = (
-    os.getenv("DATABASE_URL") or "postgresql+asyncpg://user:password@localhost/postgres"
-)
+DATABASE_URL = "postgresql+asyncpg://user:password@localhost/postgres"
 
 engine = create_async_engine(DATABASE_URL, echo=True)
 AsyncSessionLocal = sessionmaker(engine, expire_on_commit=False, class_=AsyncSession)
